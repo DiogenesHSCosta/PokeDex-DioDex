@@ -3,9 +3,9 @@ import "./Caixa.css"
 export function Caixa(props){
 
     return(
-    <div className="caixa">
+    <button className="caixa" onClick={props.evento}>
         <p>{props.texto}</p>
-    </div>
+    </button>
     )
     
 }
