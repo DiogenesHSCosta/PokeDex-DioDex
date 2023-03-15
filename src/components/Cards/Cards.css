@@ -1,0 +1,32 @@
+.cards{
+    padding: 0px 5px 0px 0px;
+    color:  #FFF;
+    height: 32px;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+.cards img{
+    width: 38px;
+}
+
+.card-container{
+    align-items: center;
+    display: flex;
+}
+.normal{}
+
+.grass{
+    /* background-color : rgb(15, 222, 15); */
+}
+
+.fire{
+    /* background-color: rgb(253, 33, 33); */
+}
+.water{
+    /* background-color: rgb(0, 102, 255); */
+}
+.electric{}
+.bug{}
+.flying{}
+.poison{}

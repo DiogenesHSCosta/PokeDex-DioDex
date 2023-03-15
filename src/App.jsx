@@ -2,89 +2,140 @@ import {useEffect, useState } from 'react'
 import './App.css'
 import axios from 'axios'
 import { Caixa } from './components/Caixa/Caixa.jsx'
+import { Cards } from './components/Cards/Cards.jsx'
 
 function App() {
   const [pokemon, setPokemon] = useState([])
   const [descricao, setDescricao] = useState()
- 
+  const [contadorI, setContadorI] = useState(1)
+  const [contadorF, setContadorF] = useState(10)
+
   useEffect(() => {
     getApi();
+    
   }, []);
 
-  async function getApi(){
+  function getApi(){
     const dados=[]
-
-    for(let i =1; i <= 20; i++){
-      dados.push( await axios.get(`https://pokeapi.co/api/v2/pokemon/${i}`))
-      console.log(`For rodou ${i} vez(es)`)
+    
+    for(let i=1; i <= 1008 ; i++){
+      dados.push(`https://pokeapi.co/api/v2/pokemon/${i}`)
     }
+     
+    axios.all(dados.map((elemento) => axios.get(elemento))).then((res) => setPokemon(res));
 
-    setPokemon(dados)
+    if(pokemon.length>0){
+      setDescricao(pokemon[0].data)
+    }
   }
-  
 
-function teste(){
-    console.log(pokemon)
+  function showDesc(e){
+    pokemon.map((element) =>{
+      if(element.data.name == e.target.innerText){
+        setDescricao(element.data)
+      }
+    })
     
   }
 
+  function updLista(valI,valF){
 
-  function showDesc(e){
+    let saveI = valI
+    let saveF = valF
 
-      pokemon.map((element) =>{
-        if(element.data.name == e.target.innerText){
-          setDescricao(element.data)
-        }
-      })
-
+    setContadorI(saveI)
+    setContadorF(saveF)
+    if(pokemon.length>0){
+      setDescricao(pokemon[valI-1].data)
+    }
   }
 
-  
+
+ 
+
   return (
     <div className="App" >
       <div className="grid-container">
+      
+      <section className='lista'>
 
-        <section className='container lista'>
-        <h1>POKEMONS</h1>
-
-          <ul>
+        
+          <ul className='container-lista-pokemon'>
             {pokemon.map((elemento) =>(
-              <li key={elemento.data.id}>
-                <p onClick={(e)=> showDesc(e)}>
-                  {elemento.data.name}
-                </p>
-              </li>
-            ))}
+              
+              elemento.data.id>=contadorI && elemento.data.id<=contadorF &&(
+                <li className='lista-pokemons' key={elemento.data.id}>
+
+                  <Cards 
+                    id={elemento.data.id}
+                    className={elemento.data.types[0].type.name}
+                    nome ={elemento.data.name}
+                    onClick={(e)=> showDesc(e)}
+                    src={elemento.data.sprites.front_default}
+                  />
+                </li>
+            )
+            ))}                  
           </ul>
 
-        <div className='caixa-container'>
-          <Caixa texto="ANTERIOR" evento ={teste}/>
-          <Caixa texto="PROXIMO" evento ={getApi}/>
-        </div>
-
+          {contadorI <=1?(
+            <div className='caixa-container'>
+              <Caixa texto="PROXIMO" evento ={() => updLista(contadorI+10 ,contadorF+10)}/>
+            </div>
+          ):(
+            <div>
+              {contadorF >=1008 ?(
+                <Caixa texto="ANTERIOR" evento ={() => updLista(contadorI-10 ,contadorF-10)}/>
+              ):(
+                <div className="caixa-container">
+                  <Caixa texto="ANTERIOR" evento ={() => updLista(contadorI-10 ,contadorF-10)}/>
+                  <Caixa texto="PROXIMO" evento ={() => updLista(contadorI+10 ,contadorF+10)}/>
+                </div>
+                
+              )}
+              
+            </div>
+            
+          )}
         </section>
         
-        <section className='container descricao'>
+        <section className='descricao'>
           
-          {descricao == null ? 
-          (<p>bom dia</p>)
+          {descricao == null 
+          ? (
+              <p>Carregando </p>
+            )
           :(
-          <div className='descricao-container'>
-            <p>descricao</p>
-            <div className='figure'>
-              <figure>
-                <img src={descricao.sprites.front_default} alt="" />
-              </figure>
-            </div>
-          
+            <div className='descricao-container'>
+
+              <p>descricao</p>
+              
+              <div className='figure'>
+                <figure>
+                  {descricao.id<650?(
+                    <img 
+                  src={descricao.sprites.versions["generation-v"]["black-white"].animated.front_default} 
+                  alt={`imagem frontal do ${descricao.name}`} />
+                  ):(
+                    <img 
+                  src={descricao.sprites.front_default} 
+                  alt={`imagem frontal do ${descricao.name}`} />
+                  )}
+                  
+                </figure>
+              </div>
+
+            
             <div className="descricao-tipo">
               {descricao.types.length == 1 ? (
-              <Caixa texto={descricao.types[0].type.name}/>
-              ):
-              (<div>
                 <Caixa texto={descricao.types[0].type.name}/>
-                <Caixa texto={descricao.types[1].type.name}/>
-              </div>)}
+              )
+              :(
+                <div>
+                  <Caixa texto={descricao.types[0].type.name}/>
+                  <Caixa texto={descricao.types[1].type.name}/>
+                </div>
+              )}
             </div>
 
 
