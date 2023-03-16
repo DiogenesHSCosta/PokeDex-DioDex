@@ -66,12 +66,11 @@ function App() {
               
               elemento.data.id>=contadorI && elemento.data.id<=contadorF &&(
                   <Cards 
-                    id={elemento.data.id}
-                    nome ={elemento.data.name}
-                    onClick= {()=> showDesc(elemento.data.name)}
-                    src={elemento.data.sprites.front_default}
-                  />
-            )
+                        id={elemento.data.id}
+                        nome ={elemento.data.name}
+                        onClick= {()=> showDesc(elemento.data.name)}
+                        src={elemento.data.sprites.front_default}/>
+              )
             ))}                  
           </ul>
 
