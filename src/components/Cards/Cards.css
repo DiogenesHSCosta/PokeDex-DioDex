@@ -1,32 +1,149 @@
 .cards{
-    padding: 0px 5px 0px 0px;
-    color:  #FFF;
     height: 32px;
+    width: 99%;
+    border: 2px solid #000000;
+    
+
+    padding: 0px 5px 0px 0px;
+    
+    color:  #ffffff;
+
     display: flex;
     justify-content:space-between;
     align-items: center;
+
+    box-shadow: 10px 10px 18px -11px rgba(0,0,0,0.75);
+    
+    transition: 0.3s;
 }
 .cards img{
-    width: 38px;
+    margin: 0px 5px;
+    width: 36px;
 }
 
 .card-container{
     align-items: center;
     display: flex;
 }
-.normal{}
+
+.cards:hover{
+    width: 100%;
+    transition: height 0.5s;
+}
+
+.lista-pokemons{
+    
+    margin: 3px 0px;
+    padding: 1px 0px;
+    cursor: pointer;
+    
+  }
+
+
+.normal{
+    background-image: url("/src/assets/capas/capa-normal.png");
+    background-size: cover;
+     background-position: center;
+}
 
 .grass{
-    /* background-color : rgb(15, 222, 15); */
+    background-image: url("/src/assets/capas/capa-planta.png");
+    background-size: cover;
+    background-position: center;
 }
 
 .fire{
-    /* background-color: rgb(253, 33, 33); */
+    background-image: url("/src/assets/capas/capa-fogo.png");
+    background-size: cover;
+     background-position: center;
 }
+
 .water{
-    /* background-color: rgb(0, 102, 255); */
+    background-image: url("/src/assets/capas/capa-agua.png");
+    background-size: cover;
+     background-position: center;
 }
-.electric{}
-.bug{}
-.flying{}
-.poison{}
+
+.electric{
+    background-image: url("/src/assets/capas/capa-elétrico.png");
+    background-size: cover;
+     background-position: center;
+}
+
+.bug{
+    background-image: url("/src/assets/capas/capa-inseto.png");
+    background-size: cover;
+     background-position: center;
+}
+
+.flying{
+    background-image: url("/src/assets/capas/capa-voador.png");
+    background-size: cover;
+     background-position: center;
+}
+
+.poison{
+    background-image: url("/src/assets/capas/capa-venenoso.png");
+    background-size: cover;
+     background-position: center;
+}
+
+.ground{
+    background-image: url("/src/assets/capas/capa-terrestre.png");
+    background-size: cover;
+     background-position: center;
+}
+
+.fairy{
+    background-image: url("/src/assets/capas/capa-fada.png");
+    background-size: cover;
+     background-position: center;
+}
+
+.fighting{
+    background-image: url("/src/assets/capas/capa-lutador.png");
+    background-size: cover;
+     background-position: center;
+}
+
+.psychic{
+    background-image: url("/src/assets/capas/capa-psíquico.png");
+    background-size: cover;
+     background-position: center;
+}
+
+.rock{
+    background-image: url("/src/assets/capas/capa-pedra.png");
+    background-size: cover;
+     background-position: center;
+}
+
+.ghost{
+    background-image: url("/src/assets/capas/capa-fantasma.png");
+    background-size: cover;
+     background-position: center;
+}
+
+.ice{
+    background-image: url("/src/assets/capas/capa-gelo.png");
+    background-size: cover;
+     background-position: center;
+}
+
+.dragon{
+    background-image: url("/src/assets/capas/capa-dragão.png");
+    background-size: cover;
+     background-position: center;
+}
+
+.dark{
+    background-image: url("/src/assets/capas/capa-sombrio.png");
+    background-size: cover;
+     background-position: center;
+}
+
+.steel{
+    background-image: url("/src/assets/capas/capa-aço.png");
+    background-size: cover;
+     background-position: center;
+}

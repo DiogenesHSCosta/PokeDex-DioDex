@@ -1,17 +1,22 @@
 import "./Cards.css"
 
 export function Cards(props){
-    const classe = `cards ${props.className} `
-    return(
+
+
+    return( 
+
+        <li className='lista-pokemons' key={props.id}>  
             <div key={props.id}
-                 className={classe}
+                 className="cards"
                  onClick={props.onClick}
             >   
                 <div className="card-container">
                     <img src={props.src} alt={props.nome} />
                     <p> {props.nome}</p>
                 </div>
-                <p># {props.id} </p>
+                <p>#{props.id} </p>
+                
             </div>
+        </li>
     )
 }

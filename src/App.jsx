@@ -21,7 +21,7 @@ function App() {
     for(let i=1; i <= 1008 ; i++){
       dados.push(`https://pokeapi.co/api/v2/pokemon/${i}`)
     }
-     
+
     axios.all(dados.map((elemento) => axios.get(elemento))).then((res) => setPokemon(res));
 
     if(pokemon.length>0){
@@ -30,8 +30,9 @@ function App() {
   }
 
   function showDesc(e){
+    console.log(e)
     pokemon.map((element) =>{
-      if(element.data.name == e.target.innerText){
+      if(element.data.name == e){
         setDescricao(element.data)
       }
     })
@@ -64,16 +65,12 @@ function App() {
             {pokemon.map((elemento) =>(
               
               elemento.data.id>=contadorI && elemento.data.id<=contadorF &&(
-                <li className='lista-pokemons' key={elemento.data.id}>
-
                   <Cards 
                     id={elemento.data.id}
-                    className={elemento.data.types[0].type.name}
                     nome ={elemento.data.name}
-                    onClick={(e)=> showDesc(e)}
+                    onClick= {()=> showDesc(elemento.data.name)}
                     src={elemento.data.sprites.front_default}
                   />
-                </li>
             )
             ))}                  
           </ul>
@@ -108,14 +105,16 @@ function App() {
           :(
             <div className='descricao-container'>
 
-              <p>descricao</p>
+              <p>{descricao.name} #{descricao.id}</p>
               
-              <div className='figure'>
+              <div className={`figure ${descricao.types[0].type.name}`}>
                 <figure>
                   {descricao.id<650?(
-                    <img 
-                  src={descricao.sprites.versions["generation-v"]["black-white"].animated.front_default} 
-                  alt={`imagem frontal do ${descricao.name}`} />
+                    <img
+                      id='imagemGif' 
+                      src={descricao.sprites.versions["generation-v"]["black-white"].animated.front_default} 
+                      alt={`imagem frontal do ${descricao.name}`} 
+                    />
                   ):(
                     <img 
                   src={descricao.sprites.front_default} 
