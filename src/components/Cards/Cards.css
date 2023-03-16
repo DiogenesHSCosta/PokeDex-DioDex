@@ -39,3 +39,74 @@
     
   }
 
+.normal{
+    background-image: url("/src/assets/capas/capa-normal.png")
+}
+
+.grass{
+    background-image: url("/src/assets/capas/capa-planta.png")
+}
+
+.fire{
+    background-image: url("/src/assets/capas/capa-fogo.png");
+}
+
+.water{
+    background-image: url("/src/assets/capas/capa-agua.png");
+}
+
+.electric{
+    background-image: url("/src/assets/capas/capa-elétrico.png");
+}
+
+.bug{
+    background-image: url("/src/assets/capas/capa-inseto.png");
+}
+
+.flying{
+    background-image: url("/src/assets/capas/capa-voador.png");
+}
+
+.poison{
+    background-image: url("/src/assets/capas/capa-venenoso.png");
+}
+
+.ground{
+    background-image: url("/src/assets/capas/capa-terrestre.png");
+}
+
+.fairy{
+    background-image: url("/src/assets/capas/capa-fada.png");
+}
+
+.fighting{
+    background-image: url("/src/assets/capas/capa-lutador.png");
+}
+
+.psychic{
+    background-image: url("/src/assets/capas/capa-psíquico.png");
+}
+
+.rock{
+    background-image: url("/src/assets/capas/capa-pedra.png");
+}
+
+.ghost{
+    background-image: url("/src/assets/capas/capa-fantasma.png");
+}
+
+.ice{
+    background-image: url("/src/assets/capas/capa-gelo.png");
+}
+
+.dragon{
+    background-image: url("/src/assets/capas/capa-dragão.png");
+}
+
+.dark{
+    background-image: url("/src/assets/capas/capa-sombrio.png");
+}
+
+.steel{
+    background-image: url("/src/assets/capas/capa-aço.png");
+}
