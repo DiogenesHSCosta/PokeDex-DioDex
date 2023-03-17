@@ -20,3 +20,11 @@ export function Cards(props){
         </li>
     )
 }
+
+export function CardsTipos(props){
+    return(
+        <button className={`padrao ${props.texto}`} onClick={props.evento}>
+            <p>{props.texto}</p>
+        </button>
+        )
+}

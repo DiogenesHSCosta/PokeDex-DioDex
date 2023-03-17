@@ -2,7 +2,7 @@ import {useEffect, useState } from 'react'
 import './App.css'
 import axios from 'axios'
 import { Caixa } from './components/Caixa/Caixa.jsx'
-import { Cards } from './components/Cards/Cards.jsx'
+import { Cards, CardsTipos} from './components/Cards/Cards.jsx'
 
 function App() {
   const [pokemon, setPokemon] = useState([])
@@ -133,33 +133,31 @@ function App() {
                   
                 </figure>
               </div>
-
             
-            <div className="descricao-tipo">
-              {descricao.types.length == 1 ? (
-                <Caixa texto={descricao.types[0].type.name}/>
-              )
-              :(
-                <div>
-                  <Caixa texto={descricao.types[0].type.name}/>
-                  <Caixa texto={descricao.types[1].type.name}/>
-                </div>
-              )}
-            </div>
+              <div className="descricao-tipo">
+                {descricao.types.length == 1 ? (
+                  <CardsTipos texto={descricao.types[0].type.name} class="padrao"/>
+                )
+                :(
+                  <div>
+                    <CardsTipos texto={descricao.types[0].type.name}/>
+                    <CardsTipos texto={descricao.types[1].type.name}/>
+                  </div>
+                )}
+              </div>
 
-
-            <div className='descricao-status'>
-              
-                <ul>
-                  <li><p>HP: {descricao.stats[0].base_stat}</p></li>
-                  <li><p>AT: {descricao.stats[1].base_stat}</p></li>
-                  <li><p>DF: {descricao.stats[2].base_stat}</p></li>
-                  <li><p>A.E: {descricao.stats[3].base_stat}</p></li>
-                  <li><p>D.E: {descricao.stats[4].base_stat}</p></li>
-                  <li><p>SP: {descricao.stats[5].base_stat}</p></li>
-                </ul>
-              
-            </div>
+              <div className='descricao-status'>
+                
+                  <ul>
+                    <li><p>HP: {descricao.stats[0].base_stat}</p></li>
+                    <li><p>ATAQUE: {descricao.stats[1].base_stat}</p></li>
+                    <li><p>DEFESA: {descricao.stats[2].base_stat}</p></li>
+                    <li><p>ATAQUE ESPECIAL: {descricao.stats[3].base_stat}</p></li>
+                    <li><p>DEFESA ESPECIAL: {descricao.stats[4].base_stat}</p></li>
+                    <li><p>VELOCIDADE: {descricao.stats[5].base_stat}</p></li>
+                  </ul>
+                
+              </div>
           </div>
           )}
           

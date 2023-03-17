@@ -10,7 +10,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 .grid-container{
   align-items: center;
@@ -23,15 +22,12 @@
   box-shadow: 0px 15px 57px -2px rgba(0,0,0,0.75);
   
 }
-
+/* aba lista */
 .caixa-container{
   margin: 10px;
   display: flex;
   width: 5px;
 }
-
-
-
 .lista{
   height: 100%;
   padding: 10px;
@@ -43,10 +39,7 @@
 .container-lista-pokemon{
   height: 85%;
 }
-
-
-
-
+/* aba descrição */
 .descricao{
   height: 100%;
   color: #000;
@@ -58,7 +51,6 @@
 
   background: linear-gradient(180deg, #CEE5F2 0%, #7C98B3 100%);
 }
-
 .descricao-container{
   display: flex;
   flex-direction:column;
@@ -67,7 +59,6 @@
   width: 100%;
   height: 100%;
 }
-
 .figure{
   width: 60%;
   height: 40%;
@@ -91,12 +82,10 @@
   border: 2px solid #000;
   box-shadow: 10px 10px 18px -11px rgba(0,0,0,0.75);
 }
-
 .figure img{
   width: 190%;
   transform: translateX(-20%)
 }
-
 .descricao-status{ 
   margin: 10px;
   width: 90%;
@@ -116,11 +105,9 @@
   margin: 0px 15px;
   padding: 2px 0px;
 }
-
 li{
   border: 1px solid black;
 }
-
 .easterEgg{
   background-image: url("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/25.svg");
 }
