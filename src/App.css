@@ -120,3 +120,7 @@
 li{
   border: 1px solid black;
 }
+
+.easterEgg{
+  background-image: url("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/25.svg");
+}

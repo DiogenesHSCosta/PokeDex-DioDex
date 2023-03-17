@@ -9,6 +9,8 @@ function App() {
   const [descricao, setDescricao] = useState()
   const [contadorI, setContadorI] = useState(1)
   const [contadorF, setContadorF] = useState(10)
+  const [classeEasterEgg, setClasseEasterEgg] = useState('')
+  const [contEE, setContEE] = useState(1)
 
   useEffect(() => {
     getApi();
@@ -51,11 +53,20 @@ function App() {
     }
   }
 
+  function EasterEgg(pikachu){
+    if(pikachu == "pikachu"){
+      setContEE(contEE+1)
+      if(contEE ==3){
+        setClasseEasterEgg('easterEgg')
+      }
+    }
 
- 
+    console.log(pokemon)
+}
+
 
   return (
-    <div className="App" >
+    <div className={`App ${classeEasterEgg}`} >
       <div className="grid-container">
       
       <section className='lista'>
@@ -110,7 +121,7 @@ function App() {
                 <figure>
                   {descricao.id<650?(
                     <img
-                      id='imagemGif' 
+                      onClick={() => EasterEgg(descricao.name)}
                       src={descricao.sprites.versions["generation-v"]["black-white"].animated.front_default} 
                       alt={`imagem frontal do ${descricao.name}`} 
                     />
@@ -138,13 +149,14 @@ function App() {
 
 
             <div className='descricao-status'>
+              
                 <ul>
                   <li><p>HP: {descricao.stats[0].base_stat}</p></li>
-                  <li><p>ATAQUE: {descricao.stats[1].base_stat}</p></li>
-                  <li><p>DEFESA: {descricao.stats[2].base_stat}</p></li>
-                  <li><p>ATAQUE ESPECIAL: {descricao.stats[3].base_stat}</p></li>
-                  <li><p>DEFESA ESPECIAL: {descricao.stats[4].base_stat}</p></li>
-                  <li><p>SPEED: {descricao.stats[5].base_stat}</p></li>
+                  <li><p>AT: {descricao.stats[1].base_stat}</p></li>
+                  <li><p>DF: {descricao.stats[2].base_stat}</p></li>
+                  <li><p>A.E: {descricao.stats[3].base_stat}</p></li>
+                  <li><p>D.E: {descricao.stats[4].base_stat}</p></li>
+                  <li><p>SP: {descricao.stats[5].base_stat}</p></li>
                 </ul>
               
             </div>
