@@ -19,7 +19,7 @@
     display: flex;
 }
 .cards:hover{
-    width: 100%;
+    width: 100.5%;
 }
 .lista-pokemons{
     margin: 3px 0px;
