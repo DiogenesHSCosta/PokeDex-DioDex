@@ -32,7 +32,6 @@ function App() {
   }
 
   function showDesc(e){
-    console.log(e)
     pokemon.map((element) =>{
       if(element.data.name == e){
         setDescricao(element.data)
